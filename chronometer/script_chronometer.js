@@ -66,6 +66,13 @@ const pause = ()=>{
   clearInterval(timer);
 }
 
+const reset = ()=>{
+  clearInterval(timer);
+  seconds = 0;
+  minutes = 0;
+  hours = 0;
+}
+
 //----- REGISTER FUNCTIONS -----
 
 const add_to_father_register = ()=>{
