@@ -1,3 +1,7 @@
+//-----  RESOURCES -----
+
+//-- chronometer itself --
+
 const start_button_container = document.querySelector('.start-button');
 const pause_button_container = document.querySelector('.pause-button');
 
@@ -5,128 +9,99 @@ const hour_text = document.querySelector('.hour-counter');
 const minute_text = document.querySelector('.minute-counter');
 const second_text = document.querySelector('.second-counter');
 
-const register_container = document.querySelector('.register-content');
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let timer;
 
-const prueba = document.querySelector('.main-container');
+//-- register method --
 
-let alto_prueba = window.innerHeight - 60;
+let order = 0;
 
-let start, hour, minute, second;
+//----- CHRONOMETER FUNCIONTS -----
 
-let register_order = 0;
+const limits = ()=>{
 
-hour = 0;
-minute = 0;
-second = 0;
-
-let register_group = [];
-
-const less_than_10_numbers = (value)=>{
-    switch(true){
-        case value < 10:
-            return '0' + value;
-        default:
-            return value;
-    }
+  switch (true) {
+    case seconds > 59 && minutes < 60:
+      seconds = 0;
+      minutes++;
+      return [seconds, minutes, hours];
+    case seconds > 59 && minutes > 59:
+      seconds = 0;
+      minutes = 0;
+      hours++;
+      return [seconds, minutes, hours];
+    default:
+      return [seconds, minutes, hours];
+  }
 }
 
-const seconds_minutes_hours_logic = (current_second, current_minute)=>{
-    switch(true){
-        case current_second < 59:
-            second++;
-            break;
-        case current_second == 59 && current_minute < 59:
-            minute++;
-            second = 0;
-            break;
-        case current_second == 59 && current_minute == 59:
-            hour++;
-            minute = 0;
-            second = 0;
-            break;
-    }
+const verify_10 = (value)=>{
+  if(value < 10){
+    value = '0' + value;
+    return value;
+  }else{
+    return value;
+  }
 }
 
-const start_chronometer = ()=>{
-    start_button_container.style.display = 'none';
-    pause_button_container.style.display = 'block';
-
-    start = setInterval(()=>{
-        seconds_minutes_hours_logic(second, minute);
-
-        second_text.innerHTML = less_than_10_numbers(second);
-        minute_text.innerHTML = less_than_10_numbers(minute);
-        hour_text.innerHTML = less_than_10_numbers(hour);
-    }, 1000);
+const show_info = (new_seconds, new_minutes, new_hours)=>{
+  second_text.innerHTML = new_seconds;
+  minute_text.innerHTML = new_minutes;
+  hour_text.innerHTML = new_hours;
 }
 
-const pause_chronometer = ()=>{
-    start_button_container.style.display = 'block';
-    pause_button_container.style.display = 'none';
+const start = ()=>{
+  timer = setInterval(()=>{
+    seconds++;
 
-    clearInterval(start);
+    let time_arr = limits();
+
+    show_info(verify_10(seconds), verify_10(minutes), verify_10(hours));
+  }, 1000);
 }
 
-const stop_chronometer = ()=>{
-    start_button_container.style.display = 'block';
-    pause_button_container.style.display = 'none';
-
-    clearInterval(start);
-
-    second = 0;
-    minute = 0;
-    hour = 0;
-
-    second_text.innerHTML = less_than_10_numbers(second);
-    minute_text.innerHTML = less_than_10_numbers(minute);
-    hour_text.innerHTML = less_than_10_numbers(hour);
-
-    while(register_container.hasChildNodes()){
-        register_container.removeChild(register_container.children[0]);
-    }
-
-    prueba.style.height = '100vh';
-    register_order = 0;
+const pause = ()=>{
+  clearInterval(timer);
 }
 
-const add_register_chronometer = ()=>{
+//----- REGISTER FUNCTIONS -----
 
-    register_order++;
+const add_to_father_register = ()=>{
+  const new_register = createRegister();
 
-    const current_register_container = document.createElement('div');
-    const order_number_container = document.createElement('div');
-    const current_time_container = document.createElement('div');
-    const order_number_text = document.createElement('p');
-    const current_time_text = document.createElement('p');
+  document.querySelector('.register-content').appendChild(new_register);
+}
 
-    //----------------------------------------------------------------------
-    
-    current_time_container.classList.add('time-registered-container');
-    order_number_container.classList.add('order-number-registered-container');
+const createRegister = ()=>{
 
-    current_register_container.classList.add('current-registered-container');
+    //-- elements containers --
+  const full_container = document.createElement('div').classList.add('son-register');
+  const order_container = document.createElement('div').classList.add('order-container');
+  const time_container = document.createElement('div').classList.add('time-container');
+  const erase_container = document.createElement('div').classList.add('erase-container');
 
-    //----------------------------------------------------------------------
+  //-- elements --
+  const order_text = document.createElement('p').classList.add('order-text');
+  const time_text = document.createElement('p').classList.add('time-text');
+  /*const erase_button = document.createElement('button').classList.add('erase-button');
+  erase_button.setAttribute('onclick', 'erases()');*/
+  const sign_erase = document.createElement('span');
 
-    current_time_container.appendChild(current_time_text);
-    order_number_container.appendChild(order_number_text);
+  order = order + 1;
+  order_text.innerHTML = order;
+  time_text.innerHTML = `${hours} : ${minutes} : ${seconds}`;
 
-    current_register_container.appendChild(order_number_container);
-    current_register_container.appendChild(current_time_container);
+  //erase_button.appendChild(sign_erase);
 
-    register_container.appendChild(current_register_container);
+  order_container.appendChild(order_text);
+  time_container.appendChild(time_text);
+  //erase_container.appendChild(erase_button);
 
-    //----------------------------------------------------------------------
+  full_container.appendChild(order_container);
+  full_container.appendChild(time_container);
+  full_container.appendChild(erase_container);
 
-    order_number_text.innerHTML = register_order;
-    current_time_text.innerHTML = `${less_than_10_numbers(hour)} : ${less_than_10_numbers(minute)} : ${less_than_10_numbers(second)}`;
-
-    switch(true){
-        case window.innerWidth < 800:
-            if(register_container.children.length >= 6) prueba.style.height = '100%';
-            break;
-        case window.innerWidth > 800:
-            if(register_container.children.length >= 5) prueba.style.height = '100%';
-            break;
-    }
+  return full_container;
 }
