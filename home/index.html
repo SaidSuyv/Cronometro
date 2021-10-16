@@ -6,46 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer Web</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/10f6dbc809.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="css/backgrounds.css">
+    <link rel="stylesheet" href="css/structure.css">
 </head>
 
 <body>
     <main class="main-container">
-        <header class="header-container">
-            <div class="logo-container">
-                <i class="far fa-clock"></i>
-                <a class="home" href="#">Timer Web</a>
-            </div>
-            <div class="open-nav-container">
-                <input type="checkbox" class="check-nav-inp" id="check-nav-toggle">
-                <nav class="nav">
-                    <ul class="list-container_nav">
-                        <li>
-                            <a href="#" class="timer-link">Horario</a>
-                        </li>
-                        <li>
-                            <a href="../chronometer/index.html" class="cronometro-link">Cronometro</a>
-                        </li>
-                        <li>
-                            <a href="../timer/index.html" class="temporizador-link">Temporizador</a>
-                        </li>
-                    </ul>
-                </nav>
-                <label for="check-nav-toggle" class="check-nav-toggle">
-                    <span></span>
-                </label>
-            </div>
-        </header>
         <section class="body-container">
-            <div class="title-container">
-                <div class="elements-container">
-                    <i class="far fa-clock"></i>
-                    <span class="title">Timer Web</span>
-                </div>
-            </div>
-            <div class="content-container">
-                <div class="timer-container">
+            <div class="timer-container">
                     <div class="days-timer">
                         <div class="day">
                             <p class="day-title">Day</p>
@@ -65,15 +35,9 @@
                             <p class="hour-title">Hour</p>
                             <p class="hour-counter">00</p>
                         </div>
-                        <div class="separator">
-                            <p>:</p>
-                        </div>
                         <div class="minute">
                             <p class="minute-title">Minutes</p>
                             <p class="minute-counter">00</p>
-                        </div>
-                        <div class="separator">
-                            <p>:</p>
                         </div>
                         <div class="second">
                             <p class="second-title">Seconds</p>
@@ -81,7 +45,29 @@
                         </div>
                     </div>
                 </div>
+            <div class="title-container">
+                <div class="elements-container">
+                    <i class="far fa-clock"></i>
+                    <span class="title">Timer Web</span>
+                </div>
             </div>
+        </section>
+        <section class="user-interface">
+          <div class="elements">
+            <div class="left-btn">
+              <a href="../timer/index.html">
+                <i class="fas fa-chevron-left"></i>
+              </a>
+            </div>
+            <div class="current-location">
+              <span>Horario</span>
+            </div>
+            <div class="right-btn">
+              <a href="../chronometer/index.html">
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
         </section>
     </main>
     <script src="script.js"></script>
