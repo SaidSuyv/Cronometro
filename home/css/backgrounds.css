@@ -1,9 +1,14 @@
 .main-container{
   height: 100%;
   background: linear-gradient(
-    -45deg,
-    #eb6e4b,
-    #4bc8eb 120%
+    45deg,
+    #4bc8eb,
+    #4b78eb,
+    #6e4beb,
+    #be4beb,
+    #eb4bc8,
+    #eb4b78,
+    #eb6e4b
   );
   background-size: 500%;
 
