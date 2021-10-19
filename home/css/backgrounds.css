@@ -29,6 +29,8 @@
   font-size: 1.6rem;
 }
 
+.home-container,
+.chronometer-container,
 .timer-container{
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
@@ -50,6 +52,18 @@
 }
 
 .user-interface a{
+  color: white;
+}
+
+input[class$='-counter']{
+  background: transparent;
+  border: white 1px solid;
+  border-radius: 20px;
+  outline: none;
+  color: white;
+}
+
+input[class$='-counter']::placeholder{
   color: white;
 }
 

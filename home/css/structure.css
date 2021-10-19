@@ -21,6 +21,8 @@ html,body{height:100%;}
   position: relative;
 }
 
+.home-container,
+.chronometer-container,
 .timer-container{
   padding: 1.3em;
 
@@ -28,7 +30,9 @@ html,body{height:100%;}
 }
 
 .days-timer,
-.hours-timer{
+.hours-timer,
+.time-container,
+.buttons-container{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,12 +40,24 @@ html,body{height:100%;}
   margin: .5em 0;
 }
 
-.hours-timer{
+.hours-timer,
+.time-container{
   gap: .5em;
 }
 
-p[class$='-counter']{
+p[class$='-counter'],
+.buttons-container > *,
+p[class$='-title']{
   text-align: center;
+}
+
+input[class$='-counter']{
+  margin: 15px 10px;
+  width: 30px;
+  height: 20px;
+  padding: .5em;
+  text-align: center;
+  font-size: 25px;
 }
 
 /*--------------------------------------*/
@@ -71,12 +87,15 @@ p[class$='-counter']{
 
 /* intento de responsive para dispositivos muy pequeños */
 @media screen and (max-width: 300px) and (max-height: 400px){
-  .timer-container{
+  .home-container,
+  .chronometer-container{
     width: 0;
   }
 
   .days-timer,
-  .hours-timer{
+  .hours-timer,
+  .time-container,
+  .buttons-container{
     flex-wrap: wrap;
   }
 }
