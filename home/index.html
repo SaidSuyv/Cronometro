@@ -6,85 +6,217 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer Web</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/10f6dbc809.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="css/backgrounds.css">
+    <link rel="stylesheet" href="css/structure.css">
+    <link rel="stylesheet" href="css/changeFramer.css">
 </head>
 
 <body>
     <main class="main-container">
-        <header class="header-container">
-            <div class="logo-container">
-                <i class="far fa-clock"></i>
-                <a class="home" href="#">Timer Web</a>
-            </div>
-            <div class="open-nav-container">
-                <input type="checkbox" class="check-nav-inp" id="check-nav-toggle">
-                <nav class="nav">
-                    <ul class="list-container_nav">
-                        <li>
-                            <a href="#" class="timer-link">Horario</a>
-                        </li>
-                        <li>
-                            <a href="../chronometer/index.html" class="cronometro-link">Cronometro</a>
-                        </li>
-                        <li>
-                            <a href="../timer/index.html" class="temporizador-link">Temporizador</a>
-                        </li>
-                    </ul>
-                </nav>
-                <label for="check-nav-toggle" class="check-nav-toggle">
-                    <span></span>
-                </label>
-            </div>
-        </header>
+
         <section class="body-container">
+
+            <div class="home-container timer-elements" id="Schedule">
+
+                <div class="days-timer">
+
+                    <div class="day">
+
+                      <p class="day-title">Day</p>
+                      <p class="day-counter">00</p>
+
+                    </div>
+
+                    <div class="month">
+
+                      <p class="month-title">Month</p>
+                      <p class="month-counter">00</p>
+
+                    </div>
+
+                    <div class="year">
+
+                      <p class="year-title">Year</p>
+                      <p class="year-counter">0000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="hours-timer">
+
+                    <div class="hour">
+
+                      <p class="hour-title">Hour</p>
+                      <p class="hour-counter">00</p>
+
+                    </div>
+
+                    <div class="minute">
+
+                      <p class="minute-title">Minutes</p>
+                      <p class="minute-counter">00</p>
+
+                    </div>
+
+                    <div class="second">
+
+                      <p class="second-title">Seconds</p>
+                      <p class="second-counter">00</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="chronometer-container timer-elements disabled" id="Chronometer">
+
+              <div class="time-container">
+
+                <div class="hours">
+
+                  <p class="hour-title">Hours</p>
+                  <p class="hour-counter">00</p>
+
+                </div>
+
+                <div class="minutes">
+
+                  <p class="minute-title">Minutes</p>
+                  <p class="minute-counter">00</p>
+
+                </div>
+
+                <div class="seconds">
+
+                  <p class="second-title">Seconds</p>
+                  <p class="second-counter">00</p>
+
+                </div>
+
+              </div>
+
+              <div class="buttons-container">
+
+                <div class="start button">
+
+                  <i class="fas fa-play"></i>
+
+                  <p class="nameButton">Start</p>
+
+                </div>
+
+                <div class="pause button disabled">
+
+                  <i class="fas fa-pause"></i>
+
+                  <p class="nameButton">Pause</p>
+
+                </div>
+
+                <div class="stop button disabled">
+
+                  <i class="fas fa-square"></i>
+
+                  <p class="nameButton">Stop</p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="timer-container timer-elements disabled" id="Timer">
+
+              <div class="time-container">
+
+                <div class="hours">
+
+                  <p class="hour-title">Hours</p>
+                  <input class="hour-counter" placeholder="00">
+
+                </div>
+
+                <div class="minutes">
+
+                  <p class="minute-title">Minutes</p>
+                  <input class="minute-counter" placeholder="00">
+
+                </div>
+
+                <div class="seconds">
+
+                  <p class="second-title">Seconds</p>
+                  <input class="second-counter" placeholder="00">
+
+                </div>
+
+              </div>
+
+              <div class="buttons-container">
+
+                <div class="start button">
+
+                  <i class="fas fa-play"></i>
+
+                  <p class="nameButton">Start</p>
+
+                </div>
+
+                <div class="pause button disabled">
+
+                  <i class="fas fa-pause"></i>
+
+                  <p class="nameButton">Pause</p>
+
+                </div>
+
+                <div class="stop button disabled">
+
+                  <i class="fas fa-square"></i>
+
+                  <p class="nameButton">Stop</p>
+
+                </div>
+
+              </div>
+
+            </div>
+
             <div class="title-container">
                 <div class="elements-container">
                     <i class="far fa-clock"></i>
                     <span class="title">Timer Web</span>
                 </div>
             </div>
-            <div class="content-container">
-                <div class="timer-container">
-                    <div class="days-timer">
-                        <div class="day">
-                            <p class="day-title">Day</p>
-                            <p class="day-counter">00</p>
-                        </div>
-                        <div class="month">
-                            <p class="month-title">Month</p>
-                            <p class="month-counter">00</p>
-                        </div>
-                        <div class="year">
-                            <p class="year-title">Year</p>
-                            <p class="year-counter">0000</p>
-                        </div>
-                    </div>
-                    <div class="hours-timer">
-                        <div class="hour">
-                            <p class="hour-title">Hour</p>
-                            <p class="hour-counter">00</p>
-                        </div>
-                        <div class="separator">
-                            <p>:</p>
-                        </div>
-                        <div class="minute">
-                            <p class="minute-title">Minutes</p>
-                            <p class="minute-counter">00</p>
-                        </div>
-                        <div class="separator">
-                            <p>:</p>
-                        </div>
-                        <div class="second">
-                            <p class="second-title">Seconds</p>
-                            <p class="second-counter">00</p>
-                        </div>
-                    </div>
-                </div>
+        </section>
+
+        <section class="user-interface">
+
+          <div class="elements">
+
+            <div class="left-btn">
+              <i class="fas fa-chevron-left"></i>
             </div>
+
+            <div class="current-location">
+              <span>Schedule</span>
+            </div>
+
+            <div class="right-btn">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+
+          </div>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/changeFrame.js" charset="utf-8"></script>
+    <script src="script/script_chronometer.js" charset="utf-8"></script>
+    <script src="script/script_timer.js" charset="utf-8"></script>
 </body>
 
 </html>
