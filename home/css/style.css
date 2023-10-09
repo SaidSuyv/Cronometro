@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+@import url('./backgrounds.css');
+
+html,body{height: 100%}
+*{padding: 0; margin: 0;}
+
+/*--- GLOBAL ---*/
+
+body
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  color: #fff;
+  
+  padding: 1em 0;
+  
+  height: calc(100% - 2em);
+  
+  font-family: 'Itim', cursive;
+}
+
+main
+{
+  flex: 1 1 auto;
+}
+
+/*--- NAV ---*/
+
+nav div.logo
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  
+  font-size: 1.2rem;
+}
+
+/*--- MAIN ---*/
+
+main > section
+{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main > section.hide
+{
+  display: none;
+}
+
+/*--- MAIN -> TIMER ---*/
+
+main > section#timer h2
+{
+  margin-bottom: 1em;
+}
+
+/*--- FOOTER ---*/
+
+footer
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  
+  width: 100%;
+}
+
+footer > button
+{
+  outline: none;
+  background: transparent;
+  border: none;
+  
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  
+  padding: .5em;
+}
+
+footer > button:active
+{
+  background: #0002;
+}
