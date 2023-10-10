@@ -7,3 +7,5 @@ This is a simple project made by [Said](https://said.digysoft.com).
 - Bootstrap Icons v5.3 - [Link](https://icons.getbootstrap.com/)
 
 Thanks for seeing this project!
+
+You can see this project online here -> [Timer Web](https://saidsuyv.github.io/Cronometro)
