@@ -1,4 +1,4 @@
-body{
+body {
   background: linear-gradient(
     45deg,
     #4bc8eb,
@@ -15,11 +15,11 @@ body{
 }
 
 @keyframes bg {
-  from{
+  from {
     background-position: top left;
   }
 
-  to{
+  to {
     background-position: bottom right;
   }
 }

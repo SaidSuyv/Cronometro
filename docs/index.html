@@ -2,63 +2,94 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer Web</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Web</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  
+
   <header>
-    
+
     <nav id="mobile">
-      
+
       <div class="logo">
-        
+
         <i class="bi bi-clock"></i>
         <h1>Timer Web</h1>
-        
+
       </div>
-      
+
     </nav>
-    
+
   </header>
-  
+
   <main>
-    
+
     <section id="timer">
-        
-        <p class="date">Day, number of year</p>
-        <p class="time">hour:minute:second</p>
-      
+
+      <p class="date">Day-Month-Year</p>
+      <p class="time">hour:minute:second</p>
+
     </section>
-    
+
+    <section id="chrono">
+
+      <div class="inputs">
+
+        <input type="number" min="0" max="99" id="hour" placeholder="00" oninput="onChronoInput(event)" />
+        <input type="number" min="0" max="59" id="min" placeholder="00" oninput="onChronoInput(event)" />
+        <input type="number" min="0" max="59" id="sec" placeholder="00" oninput="onChronoInput(event)" />
+
+      </div>
+
+      <div class="actions">
+
+        <button type="button" class="stop" onclick="onChronoStop(this)" disabled>
+          <i class="bi bi-stop-fill"></i>
+        </button>
+
+        <button type="button" class="play" onclick="onChronoPlay(this)">
+          <i class="bi bi-play-fill"></i>
+        </button>
+
+        <button type="button" class="pause" onclick="onChronoPause(this)" disabled>
+          <i class="bi bi-pause-fill"></i>
+        </button>
+
+      </div>
+
+    </section>
+
   </main>
-  
+
   <footer>
-    
+
     <button id="previous_frame" onclick="onPrevFrame()">
-      
+
       <i class="bi bi-chevron-left"></i>
-      
+
     </button>
-    
+
     <p id="current_frame">loading..</p>
-    
+
     <button id="next_frame" onclick="onNextFrame()">
-      
+
       <i class="bi bi-chevron-right"></i>
-      
+
     </button>
-    
+
   </footer>
-  
+
   <script src="script/consts.js" type="text/javascript" charset="utf-8"></script>
   <script src="script/timer.js" type="text/javascript" charset="utf-8"></script>
-  
+  <script src="script/chrono.js" type="text/javascript" charset="utf-8"></script>
+
+  <script src="script/frame-manager.js" type="text/javascript" charset="utf-8"></script>
+
 </body>
 
 </html>

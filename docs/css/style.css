@@ -1,103 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
-@import url('./backgrounds.css');
+@import url("./backgrounds.css");
+@import url("./desktop-view.css");
 
-html,body{height: 100%}
-*{padding: 0; margin: 0;}
+html,
+body {
+  height: 100%;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
 
 /*--- GLOBAL ---*/
 
-body
-{
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   color: #fff;
-  
+
   padding: 1em 0;
-  
+
   height: calc(100% - 2em);
-  
-  font-family: 'Itim', cursive;
+
+  font-family: "Itim", cursive;
 }
 
-main
-{
+main {
   flex: 1 1 auto;
+  width: 100%;
 }
 
 /*--- NAV ---*/
 
-nav div.logo
-{
+nav div.logo {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1em;
-  
+
   font-size: 1.2rem;
 }
 
 /*--- MAIN ---*/
 
-main > section
-{
+main > section {
+  width: 100%;
   height: 100%;
+  display: none;
+}
+
+main > section.show {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-main > section.hide
-{
-  display: none;
-}
-
 /*--- MAIN -> TIMER ---*/
 
-main > section#timer h2
-{
+main > section#timer h2 {
   margin-bottom: 1em;
 }
 
-main > section#timer p
-{
-    text-align: center;
-    font-size: 1.4rem;
+main > section#timer p {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+/*--- MAIN -> CHRONO ---*/
+
+main > section#chrono div.inputs,
+main > section#chrono div.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 1.5em 0;
+}
+
+main > section#chrono div.actions {
+  width: 40%;
+}
+
+main > section#chrono div.inputs input {
+  outline: none;
+  border: 1px solid #fff;
+  background: transparent;
+
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: "Itim", cursive;
+
+  max-width: calc(30px + 1em);
+  padding: 0.5em;
+
+  border-radius: 10px;
+}
+
+main > section#chrono div.inputs input:disabled {
+  border: 1px solid #fff5;
+}
+
+main > section#chrono div.inputs input::placeholder {
+  color: #fff;
+  opacity: 0.3;
+}
+
+main > section#chrono div.actions > button {
+  outline: none;
+  border: none;
+  background-color: #0005;
+
+  border-radius: 30px;
+
+  height: 40px;
+  width: 40px;
+
+  padding: 0 0.2em;
+
+  font-size: 1.7rem;
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+main > section#chrono div.actions > button:disabled {
+  cursor: default;
+  opacity: 0.4;
+  transform: scale(0.9);
 }
 
 /*--- FOOTER ---*/
 
-footer
-{
+footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  
+
   width: 100%;
 }
 
-footer > p#current_frame
-{
-    font-size: 1.3rem;
+footer > p#current_frame {
+  font-size: 1.3rem;
 }
 
-footer > button
-{
+footer > button {
   outline: none;
   background: transparent;
   border: none;
-  
+
   color: #fff;
   font-size: 1.5rem;
   border-radius: 30px;
-  
-  padding: .5em;
+
+  padding: 0.5em;
 }
 
-footer > button:active
-{
+footer > button:active {
   background: #0002;
 }
